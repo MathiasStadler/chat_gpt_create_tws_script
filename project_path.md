@@ -58,3 +58,45 @@ Create a script for the TWS with the following characteristics
 4. create a list of all necessary pip3 command for install all necessary packages
 5. get all konto information from account
 ```
+
+## 2. propt output format as text no html
+
+```text
+Create a script for the TWS with the following characteristics
+1. create the script as text without any html tags
+2. use programming language Python in the latest stable version
+3. use the Packages ib-insync
+4. use for connect the Application TWS the IP-Address 127.0.0.1 and PORT 7496
+5. create a list of all necessary pip3 command for install all necessary packages
+6. get all konto information from account
+```
+
+## 3 prompt current value of stock TREX
+
+```text
+Create a script for the TWS with the following characteristics
+1. create the script as text without any html tags
+2. use programming language Python in the latest stable version
+3. use the Packages ib-insync
+4. create a list of command to install all necessary packages
+4. use for connect the Application TWS the IP-Address 127.0.0.1 and PORT 7496
+```
+
+## 3.1 
+
+Create a script for the TWS with the following characteristics
+1. create the script as text without any html tags
+2. use programming language Python in the latest stable version and display inside the script the version
+3. use the Packages ib-insync
+4. create a list of command to install all necessary packages
+5. use for connect the Application TWS the IP-Address 127.0.0.1 and PORT 7496
+
+## 3.2 get option chain
+
+Create a script for the TWS with the following characteristics
+1. create the script as text without any html tags
+2. use programming language Python in the latest stable version and display inside the script the version
+3. use the Packages ib-insync
+4. create a list of command to install all necessary packages
+5. use for connect the Application TWS the IP-Address 127.0.0.1 and PORT 7496
+6. print the price from  the stock TREX list on NASDAQ
