@@ -17,7 +17,6 @@ ib.reqMarketDataType(MarketDataTypeEnum.DELAYED)
 
 # Create a stock contract for TREX
 trex_contract = Stock('TREX', 'SMART', 'USD')
-ib.qualifyContracts(trex_contract)
 
 # Request market data for TREX
 market_data = ib.reqMktData(trex_contract)
@@ -27,18 +26,6 @@ ib.sleep(2)
 
 # Print the price of TREX
 print("Price of TREX (delayed):", market_data.last)
-
-# Print the contract ID
-print(f"Contract ID: {trex_contract.conId}")
-
-# Request option chain for TREX
-option_chain = ib.reqSecDefOptParams(trex_contract.symbol, '', trex_contract.secType, trex_contract.conId)
-
-# Print option chain expiration dates
-print("Option Chain Expiration Dates:")
-for option in option_chain:
-    for expiration in option.expirations:
-        print(expiration)
 
 # Disconnect from TWS
 ib.disconnect()

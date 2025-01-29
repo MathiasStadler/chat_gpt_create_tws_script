@@ -91,7 +91,7 @@ Create a script for the TWS with the following characteristics
 4. create a list of command to install all necessary packages
 5. use for connect the Application TWS the IP-Address 127.0.0.1 and PORT 7496
 
-## 3.2 get option chain
+## 3.2 get option chain - in function
 
 Create a script for the TWS with the following characteristics
 1. create the script as text without any html tags
@@ -99,4 +99,36 @@ Create a script for the TWS with the following characteristics
 3. use the Packages ib-insync
 4. create a list of command to install all necessary packages
 5. use for connect the Application TWS the IP-Address 127.0.0.1 and PORT 7496
-6. print the price from  the stock TREX list on NASDAQ
+6. print the price from  the stock TREX list on SMART
+7. please use MarketDataTypeEnum.DELAYED and add the import statement to script
+
+
+### 3.3
+
+Create a script for the TWS with the following characteristics
+1. create the script as text without any html tags
+2. use programming language Python in the latest stable version and display inside the script the version
+3. use the Packages ib-insync
+4. create a list of command to install all necessary packages
+5. use for connect the Application TWS the IP-Address 127.0.0.1 and PORT 7496
+6. print the price from  the stock TREX list on SMART
+7. please use MarketDataTypeEnum.DELAYED and add the import statement to script
+8. please print contract id of contract
+9. print the option chain expiration dates of the stock
+10. add follow line to script => from ibapi.common import MarketDataTypeEnum
+11. please use ib.qualifyContracts for full filled the contract
+
+
+Create a script for the TWS with the following characteristics
+1. create the script as text without any html tags
+2. use programming language Python in the latest stable version and display inside the script the version
+3. use the Packages ib-insync
+4. create a list of command to install all necessary packages
+5. use for connect the Application TWS the IP-Address 127.0.0.1 and PORT 7496
+6. print the price from  the stock TREX list on SMART
+7. please use MarketDataTypeEnum.DELAYED and add the import statement to script
+8. please print contract id of contract
+9. print the option chain expiration dates of the stock
+10. add follow line to script => from ibapi.common import MarketDataTypeEnum
+11. please use ib.qualifyContracts for full filled the contract
+12. add the option chain too to each expiration date Call and put side
