@@ -7,6 +7,9 @@
 from ib_insync import *
 from ibapi.common import MarketDataTypeEnum
 
+
+
+
 # Connect to TWS
 ib = IB()
 ib.connect('127.0.0.1', 7496, clientId=1)
@@ -29,6 +32,12 @@ else:
     # Request market data
     ib.reqMktData(stock_contract, '', False, False)
 
+# FROM HERE
+# https://github.com/erdewit/ib_insync/blob/master/notebooks/option_chain.ipynb
+#    ticker = ib.reqStock("TREX")
+#    trexValue = ticker
+#    print(trexValue)
+
     # Print the price of the stock
     print(f"Price of {stock_contract.symbol}: {stock_contract.strike}")
 
@@ -42,12 +51,22 @@ else:
     
     print(option_chain)
 
-    # # Print expiration dates and option chains
-    # for option in option_chain:
-    #     print(f"Expiration Date: {option.expirations}")
-    #     for expiration in option.expirations:
-    #         # Request options for each expiration date
-    #         options = ib.reqContractDetails(Option(stock_contract.symbol, expiration, 'C', stock_contract.exchange))
+    # util.df(option_chain)
+
+    # Print expiration dates and option chains
+    for option in option_chain:
+        print(f"Expiration Date: {option.expirations}")
+        
+        # HIER NEXT STEP
+        # https://www.pyquantnews.com/the-pyquant-newsletter/download-options-chains-data-ibkr-api
+        print(f"strikes => {option.strikes}")
+
+
+        #for expiration in option.expirations:
+        #    print(expiration)
+            # Request options for each expiration date
+            # options = ib.reqContractDetails(Option(stock_contract.symbol, expiration, 'C', stock_contract.exchange))
+            # print(options)
     #         print(f"Call Options for {expiration}: {[opt.contract.conId for opt in options]}")
     #         # options = ib.reqContractDetails(Option(stock_contract.symbol, expiration, 'P', stock_contract.exchange))
     #         # print(f"Put Options for {expiration}: {[opt.contract.conId for opt in options]}")
