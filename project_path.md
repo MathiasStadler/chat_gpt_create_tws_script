@@ -82,7 +82,7 @@ Create a script for the TWS with the following characteristics
 4. use for connect the Application TWS the IP-Address 127.0.0.1 and PORT 7496
 ```
 
-## 3.1 
+## 3.1 connect TWS - local started
 
 Create a script for the TWS with the following characteristics
 1. create the script as text without any html tags
@@ -103,7 +103,7 @@ Create a script for the TWS with the following characteristics
 7. please use MarketDataTypeEnum.DELAYED and add the import statement to script
 
 
-### 3.3
+### 3.3 - doesn't work
 
 Create a script for the TWS with the following characteristics
 1. create the script as text without any html tags
@@ -119,6 +119,7 @@ Create a script for the TWS with the following characteristics
 11. please use ib.qualifyContracts for full filled the contract
 
 
+### 3.3 - doesn't work
 Create a script for the TWS with the following characteristics
 1. create the script as text without any html tags
 2. use programming language Python in the latest stable version and display inside the script the version
