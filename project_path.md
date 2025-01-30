@@ -41,10 +41,13 @@ deactivate
 # start the TOS local
 
 
-# install ib_insync
+# install ib_insync and another for option_chain.ipynb
 
 ```bash
 pip3 install ib_insync
+pip3 install pandas
+pip3 install numpy
+pip3 install plotly.express
 ```
 
 
