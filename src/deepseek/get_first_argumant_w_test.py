@@ -91,4 +91,4 @@ if __name__ == "__main__":
     main()
 
     # Uncomment the following line to run test cases
-    # run_tests()
+    run_tests()
