@@ -140,7 +140,7 @@ class YahooFinanceAPI:
                 name='Lower Bollinger Band',
                 line=dict(color='blue', width=1, dash='dot'),
                 fill='tonexty',  # Fill between Upper and Lower Bands
-                fillcolor='rgba(0, 203, 208, 255)'
+                # fillcolor='rgba(0, 203, 208, 255)'
             ))
             
             fig.update_layout(
