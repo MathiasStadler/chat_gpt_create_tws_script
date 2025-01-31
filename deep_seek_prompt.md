@@ -84,9 +84,25 @@ Create a script for use the Python Library Yahoo Finance API with the following 
     2. with try and error handling for each method
     3. with main function
     4. without  any test case
-    5. print a chart last  12 month af index SPX use for this the library Plotly. Print the command to install all library
+    5. print a chart last  12 month of index SPX use for this the library plotly. Print the command to install all library
     6. save the downloaded data in a csv file
     7. Use the OHLC chart (for open, high, low and close) is a style of financial chart
     8. Add a vertical and horizontal  slider
-    9 don't overwrite any data files. Check first whether the file exists and if it exists, create a new one
+    9  don't overwrite any data files. Check first whether the file exists and if it exists, create a new one
     10. Take the first argument that was specified when the program started as stock ticker
+
+
+prompt:
+Create a script with the following characteristics
+    1. OOP based
+    2. with try and error handling for each method
+    3. with main function
+    4. without  any test case
+    5. use the latest stable Python Library
+    6. use the Yahoo Finance API 
+    7. use the Python Library Plotly Express
+    8. Put as command how to install all necessary library
+    9. adapt the y axis on the value, leave open 10% and under 10% space
+    10. don't overwrite any data files. Check first whether the file exists and if it exists, create a new one
+    11. print a chart last  12 month of the stock from first argument.  Use for this the library plotly. 
+
