@@ -54,3 +54,39 @@ Create a script for use the Python Library Yahoo Finance API with the following 
     3. with main function
     4. with test case for each method inside the script and the command for running all test cases and run a single test case
     5. print a chart last  12 month af index SPX use for this the library Plotly. Print the command to install all library
+
+
+## Create Mark analyze - in function
+Create a script for use the Python Library Yahoo Finance API with the following characteristics
+    1. OOP based
+    2. with try and error handling for each method
+    3. with main function
+    4. without  any test case
+    5. print a chart last  12 month af index SPX use for this the library Plotly. Print the command to install all library
+    6. save the downloaded data in a csv file
+   
+## Create Mark analyze - ohcl diagram
+Create a script for use the Python Library Yahoo Finance API with the following characteristics
+    1. OOP based
+    2. with try and error handling for each method
+    3. with main function
+    4. without  any test case
+    5. print a chart last  12 month af index SPX use for this the library Plotly. Print the command to install all library
+    6. save the downloaded data in a csv file
+    7. Use the OHLC chart (for open, high, low and close) is a style of financial chart
+
+
+##
+
+prompt:
+Create a script for use the Python Library Yahoo Finance API with the following characteristics
+    1. OOP based
+    2. with try and error handling for each method
+    3. with main function
+    4. without  any test case
+    5. print a chart last  12 month af index SPX use for this the library Plotly. Print the command to install all library
+    6. save the downloaded data in a csv file
+    7. Use the OHLC chart (for open, high, low and close) is a style of financial chart
+    8. Add a vertical and horizontal  slider
+    9 don't overwrite any data files. Check first whether the file exists and if it exists, create a new one
+    10. Take the first argument that was specified when the program started as stock ticker
