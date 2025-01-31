@@ -105,4 +105,4 @@ Create a script with the following characteristics
     9. adapt the y axis on the value, leave open 10% and under 10% space
     10. don't overwrite any data files. Check first whether the file exists and if it exists, create a new one
     11. print a chart last  12 month of the stock from first argument.  Use for this the library plotly. 
-
+    12. exclude all row from the data csv file wheer the open value null is

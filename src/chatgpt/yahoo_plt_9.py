@@ -16,8 +16,10 @@ Create a script with the following characteristics
     11. get the data for the last 24 Month
     12. print a chart last  12 month of the stock from first argument.  Use for this the library plotly
     13  add the Simple Moving average  200 in red, Simple Moving average  60 in yellow and the Simple Moving average green
+    14. Add the indicator Bollinger Bands and make the space between the bands in high blue
 
 """
+
 
 import yfinance as yf
 import plotly.express as px
@@ -39,10 +41,18 @@ class YahooFinanceAPI:
             if self.data.empty:
                 raise ValueError("No data found for the given ticker.")
             
+            # Remove rows where 'Open' value is null
+            self.data.dropna(subset=['Open'], inplace=True)
+            
             # Calculate Simple Moving Averages (SMA)
             self.data['SMA_200'] = self.data['Close'].rolling(window=200).mean()
             self.data['SMA_60'] = self.data['Close'].rolling(window=60).mean()
             self.data['SMA_20'] = self.data['Close'].rolling(window=20).mean()
+            
+            # Calculate Bollinger Bands
+            self.data['BB_Middle'] = self.data['Close'].rolling(window=20).mean()
+            self.data['BB_Upper'] = self.data['BB_Middle'] + (self.data['Close'].rolling(window=20).std() * 2)
+            self.data['BB_Lower'] = self.data['BB_Middle'] - (self.data['Close'].rolling(window=20).std() * 2)
             
             print(f"Successfully fetched data for {self.ticker}")
         except Exception as e:
@@ -115,8 +125,26 @@ class YahooFinanceAPI:
                 line=dict(color='green', width=1.5)
             ))
             
+            # Add Bollinger Bands
+            fig.add_trace(go.Scatter(
+                x=last_12_months.index, 
+                y=last_12_months['BB_Upper'], 
+                mode='lines', 
+                name='Upper Bollinger Band',
+                line=dict(color='blue', width=1, dash='dot')
+            ))
+            fig.add_trace(go.Scatter(
+                x=last_12_months.index, 
+                y=last_12_months['BB_Lower'], 
+                mode='lines', 
+                name='Lower Bollinger Band',
+                line=dict(color='blue', width=1, dash='dot'),
+                fill='tonexty',  # Fill between Upper and Lower Bands
+                fillcolor='rgba(0, 0, 255, 0.2)'
+            ))
+            
             fig.update_layout(
-                title=f"{self.ticker} - Last 12 Months OHLC Chart with SMA", 
+                title=f"{self.ticker} - Last 12 Months OHLC Chart with SMA & Bollinger Bands", 
                 xaxis_title="Date", 
                 yaxis_title="Price",
                 yaxis_range=[min_price - price_margin, max_price + price_margin],  # Adapting Y-axis
@@ -144,5 +172,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 

@@ -16,8 +16,10 @@ Create a script with the following characteristics
     11. get the data for the last 24 Month
     12. print a chart last  12 month of the stock from first argument.  Use for this the library plotly
     13  add the Simple Moving average  200 in red, Simple Moving average  60 in yellow and the Simple Moving average green
+    14.exclude all row from the data csv file where the open value null is
 
 """
+
 
 import yfinance as yf
 import plotly.express as px
@@ -38,6 +40,9 @@ class YahooFinanceAPI:
             self.data = stock.history(period=period, interval=interval)
             if self.data.empty:
                 raise ValueError("No data found for the given ticker.")
+            
+            # Remove rows where 'Open' value is null
+            self.data.dropna(subset=['Open'], inplace=True)
             
             # Calculate Simple Moving Averages (SMA)
             self.data['SMA_200'] = self.data['Close'].rolling(window=200).mean()
@@ -144,5 +149,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
