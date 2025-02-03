@@ -16,8 +16,8 @@ Create a script with the following characteristics
     11. get the data for the last 24 Month
     12. print a chart last  12 month of the stock from first argument.  Use for this the library plotly
     13  add the Simple Moving average  200 in red, Simple Moving average  60 in yellow and the Simple Moving average green
-    14. Add the indicator Bollinger Bands and make the space between the bands in high blue
-    15. 
+    14. add the indicator Bollinger Bands and make the space between the bands in high blue
+    15. gathering the stock ticker from first argument of script call
 
 """
 
