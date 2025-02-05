@@ -42,18 +42,18 @@ fig.add_trace(go.Scatter(x = df['Date'],
               col = 1,
               secondary_y = False)
 # APPL $150 horizontal line
-fig.add_trace(go.Scatter(x=df['Date'],
-                         y=[125]*len(df['Date']),
-                         mode='lines',
-                         line_width=3,
-                         line_color='black',
-                         line_dash='dash',
-                         showlegend=False,
-                         name='APPL'
-                        ),
-              row=1,
-              col=1,
-              secondary_y=False)
+# fig.add_trace(go.Scatter(x=df['Date'],
+#                          y=[125]*len(df['Date']),
+#                          mode='lines',
+#                          line_width=3,
+#                          line_color='black',
+#                          line_dash='dash',
+#                          showlegend=False,
+#                          name='APPL'
+#                         ),
+#               row=1,
+#               col=1,
+#               secondary_y=False)
                                    
 
 # MSFT
@@ -68,18 +68,18 @@ fig.add_trace(go.Scatter(x= df['Date'],
               col = 1,
               secondary_y = False)
 # MSFT $150 horizontal line
-fig.add_trace(go.Scatter(x=df['Date'],
-                         y=[150]*len(df['Date']),
-                         mode='lines',
-                         line_width=3,
-                         line_color='black',
-                         line_dash='dash',
-                         showlegend=False,
-                         name='MSFT'
-                        ),
-              row=2,
-              col=1,
-              secondary_y=False)
+# fig.add_trace(go.Scatter(x=df['Date'],
+#                          y=[150]*len(df['Date']),
+#                          mode='lines',
+#                          line_width=3,
+#                          line_color='black',
+#                          line_dash='dash',
+#                          showlegend=False,
+#                          name='MSFT'
+#                         ),
+#               row=2,
+#               col=1,
+#               secondary_y=False)
 
 
 fig.update_yaxes(tickprefix = '$')
