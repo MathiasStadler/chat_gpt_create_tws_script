@@ -29,7 +29,14 @@ class NasdaqDataFetcher:
     def parse_and_print_data(self):
         if self.data:
             try:
-                stocks = self.data.get("data", {}).get("rows", [])
+                # stocks = self.data.get("data").get("rows")
+                
+                 
+                stocks = self.data.data
+                data = self.data.get("data", {})
+                rows = self.data.get("data").get("rows")
+                print( rows[0])
+                #print(stocks.get("data").get("rows"))
                 if not stocks:
                     print("No stocks found in the response.")
                     return

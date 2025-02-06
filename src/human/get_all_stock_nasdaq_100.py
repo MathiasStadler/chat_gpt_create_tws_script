@@ -9,4 +9,5 @@ main_data=res.json()['data']['data']['rows']
 
 
 for i in range(len(main_data)):
-    print(main_data[i]['companyName'])
+    # print(main_data[i]['companyName'])
+    print(main_data[i])
