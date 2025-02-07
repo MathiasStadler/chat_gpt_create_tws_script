@@ -8,6 +8,8 @@
 7.use the Python Yahoo Finance API 
 8 Create a list on start of the script with command how to install all necessary library
 9.explain the option strategy bull put spread
+10. add to script a function that find valid Bull Put Spreads contracts inside the NASDAQ 100
+11. please add a flag for set Risk-Reward Ratio to range from to
 
 """
 
