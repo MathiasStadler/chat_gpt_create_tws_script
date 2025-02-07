@@ -1,4 +1,18 @@
 """
+
+1.OOP based
+2.with try and error handling for each method
+3.with main function
+4.without  any test case
+5.use the latest stable Python Library
+7.use the Python Yahoo Finance API 
+8 Create a list on start of the script with command how to install all necessary library
+9.explain the option strategy bull put spread
+
+"""
+
+
+"""
 Installation Instructions:
 Run the following command to install required libraries:
     pip install yfinance pandas numpy
