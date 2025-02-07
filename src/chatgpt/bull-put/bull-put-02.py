@@ -9,6 +9,7 @@
 8 Create a list on start of the script with command how to install all necessary library
 9.explain the option strategy bull put spread
 10. add a function to search valid bull put spread
+11. use the market data
 
 """
 
