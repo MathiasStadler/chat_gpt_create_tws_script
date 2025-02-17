@@ -11,7 +11,8 @@
     10. save download data inside a csv file with name of stock
     11. don't overwrite any data files. Check first whether the file exists and if it exists, create a new one
     12.  get the option chain data from the stock take by program start use for this yahoo finance
-    
+    13. download additional thw greeks of each strike price 
+    14. please write option chain with the greeks data in one output file  
 """
 
 import os
@@ -24,6 +25,7 @@ class StockAnalyzer:
         self.ticker = ticker
         self.stock_data = None
         self.option_chain_data = None
+        self.merged_option_greeks_data = None
 
     def download_stock_data(self):
         try:
@@ -40,6 +42,23 @@ class StockAnalyzer:
         except Exception as e:
             print(f"Error downloading option chain data: {e}")
 
+    def merge_option_chain_with_greeks(self):
+        try:
+            if self.option_chain_data is not None:
+                # Extract calls and puts
+                calls = self.option_chain_data.calls
+                puts = self.option_chain_data.puts
+                # Add a column to distinguish between calls and puts
+                calls['Option Type'] = 'Call'
+                puts['Option Type'] = 'Put'
+                # Combine calls and puts into a single DataFrame
+                self.merged_option_greeks_data = pd.concat([calls, puts], axis=0)
+                print(f"Option chain and Greeks data merged for {self.ticker}")
+            else:
+                print("No option chain data available to merge with Greeks.")
+        except Exception as e:
+            print(f"Error merging option chain with Greeks data: {e}")
+
     def save_stock_data_to_csv(self):
         if self.stock_data is not None:
             filename = f"{self.ticker}_stock_data.csv"
@@ -54,19 +73,19 @@ class StockAnalyzer:
         else:
             print("No stock data to save.")
 
-    def save_option_chain_data_to_csv(self):
-        if self.option_chain_data is not None:
-            filename = f"{self.ticker}_option_chain.csv"
+    def save_merged_option_greeks_data_to_csv(self):
+        if self.merged_option_greeks_data is not None:
+            filename = f"{self.ticker}_option_chain_with_greeks.csv"
             if os.path.exists(filename):
                 # If file exists, create a new one with a suffix
                 counter = 1
-                while os.path.exists(f"{self.ticker}_option_chain_{counter}.csv"):
+                while os.path.exists(f"{self.ticker}_option_chain_with_greeks_{counter}.csv"):
                     counter += 1
-                filename = f"{self.ticker}_option_chain_{counter}.csv"
-            self.option_chain_data.calls.to_csv(filename)
-            print(f"Option chain data saved to {filename}")
+                filename = f"{self.ticker}_option_chain_with_greeks_{counter}.csv"
+            self.merged_option_greeks_data.to_csv(filename)
+            print(f"Merged option chain and Greeks data saved to {filename}")
         else:
-            print("No option chain data to save.")
+            print("No merged option chain and Greeks data to save.")
 
     def plot_stock_data(self):
         if self.stock_data is not None:
@@ -94,9 +113,10 @@ def main():
     analyzer.download_stock_data()
     analyzer.save_stock_data_to_csv()
 
-    # Download and save option chain data
+    # Download and merge option chain with Greeks data
     analyzer.download_option_chain_data()
-    analyzer.save_option_chain_data_to_csv()
+    analyzer.merge_option_chain_with_greeks()
+    analyzer.save_merged_option_greeks_data_to_csv()
 
     # Plot stock data
     analyzer.plot_stock_data()
