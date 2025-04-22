@@ -39,17 +39,16 @@ class IBPositions:
                 await self.ib.connectAsync('127.0.0.1', 7496, clientId=1)
                 logger.info("Successfully connected to TWS")
                 
-                # Get all managed accounts
-                accounts = await self.ib.reqManagedAccountsAsync()
-                if not accounts:
-                    logger.error("No accounts found")
+                # Wait for connection to stabilize
+                await asyncio.sleep(1)
+                
+                # Get account information
+                if not self.ib.wrapper.accounts:
+                    logger.error("No accounts available")
                     return False
                     
-                self.account = accounts[0]
+                self.account = self.ib.wrapper.accounts[0]
                 logger.info(f"Using account: {self.account}")
-                
-                # Request account updates with the account ID
-                await self.ib.reqAccountUpdatesAsync(account=self.account)
                 
                 self._connected = True
             return True
@@ -79,7 +78,7 @@ class IBPositions:
 
         try:
             logger.info("Requesting portfolio...")
-            portfolio = await self.ib.reqPortfolioAsync()
+            portfolio = await self.ib.reqPositionsAsync()  # Changed from reqPortfolioAsync
             
             if not portfolio:
                 logger.warning("No portfolio items found")
@@ -112,10 +111,8 @@ class IBPositions:
                 position_info = {
                     "Symbol": item.contract.symbol,
                     "Position": item.position,
-                    "Avg Cost": item.averageCost,
-                    "Market Price": item.marketPrice,
-                    "Market Value": item.marketValue,
-                    "Unrealized P&L": item.unrealizedPNL,
+                    "Market Price": item.marketPrice if hasattr(item, 'marketPrice') else 0.0,
+                    "Market Value": item.marketValue if hasattr(item, 'marketValue') else 0.0,
                     "Commission": total_commission,
                     "Entry Date": earliest_date,
                     "Position Open Date": open_date
@@ -125,9 +122,8 @@ class IBPositions:
                 
                 print(f"\nSymbol: {item.contract.symbol}")
                 print(f"Position: {item.position}")
-                print(f"Average Cost: ${item.averageCost:.2f}")
-                print(f"Market Price: ${item.marketPrice:.2f}")
-                print(f"Market Value: ${item.marketValue:.2f}")
+                print(f"Market Price: ${position_info['Market Price']:.2f}")
+                print(f"Market Value: ${position_info['Market Value']:.2f}")
                 print(f"Commission: ${total_commission:.2f}")
                 print(f"Entry Date: {earliest_date}")
                 print(f"Position Open Date: {open_date}")
@@ -171,7 +167,6 @@ async def main():
     finally:
         if ib_positions._connected:
             await ib_positions.disconnect()
-            await asyncio.sleep(0.5)
 
 if __name__ == "__main__":
     asyncio.run(main())
