@@ -39,3 +39,14 @@ Create a script for the TWS with the following characteristics
 7. create a list all open position inside this account
 
 ```
+
+```text
+Create a script for the TWS with the following characteristics 
+1. use programming language Python in the latest stable version
+2. use the Packages ib_async
+3. use for connect the Application TWS the IP-Address 127.0.0.1  and PORT 7496 
+4. create a list of all necessary pip3 command for install all necessary packages
+6. add follow line to script => from ibapi.common import  MarketDataTypeEnum
+7. create a list all open position inside this account with buying-rate, fee and date 
+
+```
