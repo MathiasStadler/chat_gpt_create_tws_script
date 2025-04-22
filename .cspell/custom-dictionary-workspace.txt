@@ -1,3 +1,11 @@
 # Custom Dictionary Words
+BIDU
+eufarm
+eufarmnj
+HMDS
+secdefnj
 showindex
 tablefmt
+usfarm
+ushmds
+usopt
